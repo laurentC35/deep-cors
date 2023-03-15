@@ -1,0 +1,17 @@
+name: Docker
+
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  docker:
+    needs: build
+    steps:
+      - name: Publish to Registry
+        uses: elgohr/Publish-Docker-Github-Action@v5
+        with:
+          name: laurentc35/deep-cors
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
