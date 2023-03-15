@@ -9,6 +9,8 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout current branch
+        uses: actions/checkout@v2
       - name: Publish to Registry
         uses: elgohr/Publish-Docker-Github-Action@v5
         with:
